@@ -3,12 +3,23 @@ import Card from "./components/Card";
 import Form from "./components/Form";
 
 function App() {
-  const [apiData, setApiData] = React.useState();
-  console.log(apiData);
+  //------------------------------------------------------------------------------------------
+  // save api data, check if its empty
+  //------------------------------------------------------------------------------------------
+  const [apiData, setApiData] = React.useState({});
 
+  function isApiDataEmpty(data) {
+    //function to check if api data is empty
+    return Object.keys(apiData).length > 0 ? true : false;
+  }
+
+  //------------------------------------------------------------------------------------------
+  // Return Jsx
+  //------------------------------------------------------------------------------------------
   return (
     <div className="App">
       <Form apiData={setApiData} />
+      {isApiDataEmpty(apiData) && <Card data={apiData} />}
     </div>
   );
 }
