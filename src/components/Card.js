@@ -3,9 +3,18 @@ import React from "react";
 export default function Card(props) {
   console.log(props);
 
+  //------------------------------------------------------------------------------------------
+  // unit conversion
+  //------------------------------------------------------------------------------------------
+
   function KelvinToCelsius(num) {
+    //return celsius
     return (num - 273.15).toFixed(1);
   }
+
+  //------------------------------------------------------------------------------------------
+  // return JSX
+  //------------------------------------------------------------------------------------------
 
   return (
     <div className="App">
@@ -13,6 +22,7 @@ export default function Card(props) {
         <h1>{props.data.name}</h1>
         <h2>{props.data.sys.country}</h2>
         <h3> {props.data.weather[0].description}</h3>
+
         <img
           src={`http://openweathermap.org/img/w/${props.data.weather[0].icon}.png`}
           alt="weather icon"

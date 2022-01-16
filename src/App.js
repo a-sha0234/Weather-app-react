@@ -9,7 +9,7 @@ function App() {
   const [apiData, setApiData] = React.useState({});
 
   function isApiDataEmpty(data) {
-    //function to check if api data is empty
+    //function to check if apidata is empty
     return Object.keys(apiData).length > 0 ? true : false;
   }
 
@@ -19,7 +19,8 @@ function App() {
   return (
     <div className="App">
       <Form apiData={setApiData} />
-      {isApiDataEmpty(apiData) && <Card data={apiData} />}
+      {/* only render card component if api had sent data  */}
+      <main>{isApiDataEmpty(apiData) && <Card data={apiData} />}</main>
     </div>
   );
 }
