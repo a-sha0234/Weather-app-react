@@ -27,11 +27,12 @@ export default function Card(props) {
           src={`http://openweathermap.org/img/w/${props.data.weather[0].icon}.png`}
           alt="weather icon"
         />
-        <p>Temp: {KelvinToCelsius(props.data.main.temp)}</p>
-        <p>Feels like: {KelvinToCelsius(props.data.main.feels_like)}</p>
-        <p>Temp min: {KelvinToCelsius(props.data.main.temp_min)}</p>
-        <p>Temp max: {KelvinToCelsius(props.data.main.temp_max)}</p>
-        <p>Humidity: {props.data.main.humidity}</p>
+        <p>Temp: {KelvinToCelsius(props.data.main.temp)}°C</p>
+        <p>Feels like: {KelvinToCelsius(props.data.main.feels_like)}°C</p>
+        <p>Temp min: {KelvinToCelsius(props.data.main.temp_min)}°C</p>
+        <p>Temp max: {KelvinToCelsius(props.data.main.temp_max)}°C</p>
+        <p>Humidity: {props.data.main.humidity}%</p>
+        <p>Wind speed: {props.data.wind.speed}m/s</p>
       </main>
     </div>
   );
