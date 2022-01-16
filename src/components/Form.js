@@ -5,7 +5,7 @@ export default function Form(props) {
   // Handle form
   //------------------------------------------------------------------------------------------
   const [cityName, setCityName] = React.useState({
-    nameOfCity: "",
+    nameOfCity: "london",
   });
 
   const [isSubmit, setIsSubmit] = React.useState(true);
@@ -35,10 +35,13 @@ export default function Form(props) {
     function () {
       fetch(
         `https://api.openweathermap.org/data/2.5/weather?q=${cityName.nameOfCity}&appid=708dbd9b677bb41f1461a55259144588`
-      )
-        .then((res) => res.json())
-
-        .then((data) => props.apiData(data));
+      ).then((res) => {
+        if (res.ok) {
+          return res.json().then((data) => props.apiData(data));
+        } else if (res.status === 404) {
+          alert("name is not recognised ");
+        }
+      });
     },
     [isSubmit]
   );
