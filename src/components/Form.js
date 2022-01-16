@@ -4,25 +4,29 @@ export default function Form(props) {
   //------------------------------------------------------------------------------------------
   // Handle form
   //------------------------------------------------------------------------------------------
+
   const [cityName, setCityName] = React.useState({
+    //set the inital name
     nameOfCity: "london",
   });
 
-  const [isSubmit, setIsSubmit] = React.useState(true);
+  const [isSubmit, setIsSubmit] = React.useState(true); // state needed to detect if the submit button is clicked
 
   function handleChange(event) {
     const { name, value } = event.target;
+    //set the value to whats being typed in
     setCityName((prev) => {
       return {
-        ...prev,
         [name]: value,
       };
     });
   }
 
   function handleSubmit(event) {
+    //when submit clicked, state changes, this causes the componenet to re-render and then run the api
     event.preventDefault();
     setIsSubmit((prev) => {
+      //have to return opposite boolean value as otherwise the dependancy in the useffect wont detect a difference
       return !prev;
     });
   }
@@ -37,13 +41,15 @@ export default function Form(props) {
         `https://api.openweathermap.org/data/2.5/weather?q=${cityName.nameOfCity}&appid=708dbd9b677bb41f1461a55259144588`
       ).then((res) => {
         if (res.ok) {
+          //check if name is there is an error with userinput
           return res.json().then((data) => props.apiData(data));
         } else if (res.status === 404) {
           alert("name is not recognised ");
         }
       });
     },
-    [isSubmit]
+
+    [isSubmit] //run this hook when the submit button is clicked
   );
   //------------------------------------------------------------------------------------------
   // return JSX
