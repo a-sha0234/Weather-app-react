@@ -9,7 +9,7 @@ export default function Card(props) {
 
   function KelvinToCelsius(num) {
     //return celsius
-    return (num - 273.15).toFixed(1);
+    return (num - 273.15).toFixed(0);
   }
 
   //------------------------------------------------------------------------------------------

@@ -38,6 +38,7 @@ label {
   font-size: $formFontSize;
   font-family: $formFont;
   color: white;
+  font-weight: bold;
 }
 
 input {
@@ -54,6 +55,10 @@ button {
 button:hover {
   background-color: $formBackgroundColor;
 }
+
+//----------------------------------------------------------------
+// style card component
+//----------------------------------------------------------------
 
 .card {
   background-image: linear-gradient(
@@ -73,4 +78,23 @@ button:hover {
   text-align: center;
   color: white;
   font-family: $formFont;
+  line-height: 220%;
+}
+
+//----------------------------------------------------------------
+// style a smaller screen
+//----------------------------------------------------------------
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: red;
+  }
+  input,
+  label {
+    display: flex;
+    justify-content: center;
+  }
+  .card {
+    width: 47vw;
+  }
 }
