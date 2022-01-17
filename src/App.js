@@ -1,6 +1,7 @@
 import React from "react";
 import Card from "./components/Card";
 import Form from "./components/Form";
+import "./Scss/style.scss";
 
 function App() {
   //------------------------------------------------------------------------------------------
@@ -18,9 +19,14 @@ function App() {
   //------------------------------------------------------------------------------------------
   return (
     <div className="App">
-      <Form apiData={setApiData} />
+      <header className="form-top">
+        <Form apiData={setApiData} />
+      </header>
       {/* only render card component if api had sent data  */}
-      <main>{isApiDataEmpty(apiData) && <Card data={apiData} />}</main>
+
+      <main className="card">
+        {isApiDataEmpty(apiData) && <Card data={apiData} />}
+      </main>
     </div>
   );
 }

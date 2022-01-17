@@ -1,0 +1,7 @@
+@mixin forminputandButton {
+  padding: 10px;
+  font-size: $formFontSize;
+  border: none;
+  border-radius: 5%;
+  font-family: $formFont;
+}

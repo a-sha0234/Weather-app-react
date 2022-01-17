@@ -17,8 +17,8 @@ export default function Card(props) {
   //------------------------------------------------------------------------------------------
 
   return (
-    <div className="App">
-      <main>
+    <div>
+      <main className="card-data">
         <h1>{props.data.name}</h1>
         <h2>{props.data.sys.country}</h2>
         <h3> {props.data.weather[0].description}</h3>
