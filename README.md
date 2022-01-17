@@ -1,3 +1,3 @@
 # Weather-app-react
 
-#things
+## Things that I learnt 
