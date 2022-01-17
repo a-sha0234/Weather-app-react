@@ -1,4 +1,4 @@
 # Weather-app-react
 
-## why a weather app?
-I decided to build this mini project 
+## Things that I learnt 
+1) the use effect hook in react
